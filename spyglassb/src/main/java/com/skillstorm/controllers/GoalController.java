@@ -28,14 +28,14 @@ public class GoalController {
 	}
 	
 	// Find by id
-	@GetMapping("{id}")
+	@GetMapping("/id/{id}")
 	public ResponseEntity<Goal> findById(@PathVariable int id) {
 		System.out.println("GET by id called");
 		return new ResponseEntity<Goal> (service.findById(id), HttpStatus.OK);
 	}
 	
 	// Find by name
-	@GetMapping("/{name}")
+	@GetMapping("/name/{name}")
 	public ResponseEntity<List<Goal>> findByName(@PathVariable String name) {
 		System.out.println("GET by name called");
 		return new ResponseEntity<List<Goal>>(service.findByName(name), HttpStatus.OK);
@@ -56,7 +56,7 @@ public class GoalController {
 	}
 	
 	// Delete a goal
-	@DeleteMapping("{id}")
+	@DeleteMapping("/id/{id}")
 	public ResponseEntity<Void> delete(@PathVariable int id) {
 		System.out.println("DELETE called");
 		service.delete(id);

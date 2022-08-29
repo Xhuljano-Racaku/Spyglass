@@ -10,4 +10,5 @@ public interface GoalRepository extends JpaRepository<Goal, Integer> {
 	
 	List<Goal> findByName(String name);
 
+
 }
