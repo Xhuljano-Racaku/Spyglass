@@ -9,7 +9,7 @@ import { Goal } from './model/Goal';
 export class GoalApiService {
 
   http:HttpClient;
-  baseUrl: string = "http://localhost:8080/goals/";
+  baseUrl: string = "http://localhost:8080/goals";
   
   constructor(http: HttpClient) { 
     this.http = http;

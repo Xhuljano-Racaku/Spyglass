@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { GoalListComponent } from './goal-list/goal-list.component';
+import {TableModule} from 'primeng/table';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { GoalListComponent } from './goal-list/goal-list.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    TableModule
   ],
   providers: [],
   bootstrap: [AppComponent]
