@@ -1,0 +1,50 @@
+.table {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    background-color: #f3f0f0;
+    box-shadow: 0 0 5px 0 rgb(168, 168, 168);
+  }
+  
+  #merchandise td, #merchandise th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  #merchandise tr:nth-child(even){background-color: #f2f2f2;}
+  
+  #merchandise tr:hover {background-color: #ddd;}
+  
+  #merchandise th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: rgb(238, 136, 2);
+    color: black  ;
+    box-shadow: 0 0 2px 0 black;
+  }
+
+  #image {
+    width: 250px;
+    height: 150px;
+}
+
+.button {
+  width: 70px;
+  height: 30px;
+  cursor: pointer;
+  background-color: rgb(255, 255, 255);
+  border-radius: 50px;
+  border: 2px solid rgb(188, 188, 188);
+}
+
+.button:hover {
+  background-color: #e7e7e7;
+}
+
+#price:hover {
+  cursor: pointer;
+}

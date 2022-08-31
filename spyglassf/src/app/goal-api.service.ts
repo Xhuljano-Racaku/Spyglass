@@ -8,12 +8,9 @@ import { Goal } from './model/Goal';
 })
 export class GoalApiService {
 
-  http:HttpClient;
   baseUrl: string = "http://localhost:8080/goals";
   
-  constructor(http: HttpClient) { 
-    this.http = http;
-  }
+  constructor(private http: HttpClient) {}
 
   // Find all goals api
   findAll(): Observable<any>{
