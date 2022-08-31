@@ -1,6 +1,6 @@
 package com.skillstorm.beans;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import javax.persistence.*;
 
@@ -22,7 +22,7 @@ public class Goal {
 	private String image;
 	
 	@Column(name= "target_date")
-	private LocalDate targetDate;
+	private LocalDateTime targetDate;
 	
 	@Column(name= "target_amount")
 	private double targetAmount;
@@ -34,7 +34,7 @@ public class Goal {
 		
 	}
 
-	public Goal(String name, String description, String image, LocalDate targetDate, double targetAmount,
+	public Goal(String name, String description, String image, LocalDateTime targetDate, double targetAmount,
 			double savedAmount) {
 		this.name = name;
 		this.description = description;
@@ -44,7 +44,7 @@ public class Goal {
 		this.savedAmount = savedAmount;
 	}
 
-	public Goal(int id, String name, String description, String image, LocalDate targetDate, double targetAmount,
+	public Goal(int id, String name, String description, String image, LocalDateTime targetDate, double targetAmount,
 			double savedAmount) {
 		this.id = id;
 		this.name = name;
@@ -87,11 +87,11 @@ public class Goal {
 		this.image = image;
 	}
 
-	public LocalDate getTargetDate() {
+	public LocalDateTime getTargetDate() {
 		return targetDate;
 	}
 
-	public void setTargetDate(LocalDate targetDate) {
+	public void setTargetDate(LocalDateTime targetDate) {
 		this.targetDate = targetDate;
 	}
 

@@ -14,7 +14,7 @@
         <td>{{goals.name}}</td>
         <td>{{goals.description}}</td>
         <td><img [src]="goals.image" alt="item image" id="image"></td>
-        <td>{{goals.targetDate}}</td>
+        <td>{{goals.targetDate | date: 'shortDate'}}</td>
         <td>{{goals.targetAmount | currency}} </td>
         <td>{{goals.savedAmount | currency}}</td>
         <td>
