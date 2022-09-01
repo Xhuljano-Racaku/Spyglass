@@ -1,0 +1,152 @@
+
+<div class="container">
+    <!-- checking in for errors in add  editform. Everything is filled out but if you leave a field empty
+        it will ask you to enter an input except the image field that is optional. The apply changes button 
+        will become disable if an error input displays. Until everything is clear then apply changes button
+        will be available to press and submit the changes
+    -->
+    <form class="form" [formGroup]="editGoalForm" (ngSubmit)="edit()">
+        
+        <!-- This get the item number of the item that will be updated and display it to the user,
+             so the user will know which item is updating -->
+        <h1>Edit Your Goal {{this.editGoalForm.get('id')?.value}}</h1>
+
+        <!-- ///////////////////////////////////////////////////////////////////////////////////////////-->
+    <!-- *********************************** Name field  ***********************************-->
+    <div class="form-group">
+        <label for="name">Name*</label>
+    <input
+    required
+    ngModel 
+    name="name" 
+    formControlName="name"  
+    id="name" 
+    type="text" 
+    class="form-control">
+    <div 
+    class="alert alert-danger" 
+    *ngIf="name?.invalid && name?.touched">
+        <div *ngIf="name?.errors?.['required']">
+            Name is required
+        </div>
+    </div>
+</div>
+
+<!-- ///////////////////////////////////////////////////////////////////////////////////////////-->
+<!-- *********************************** Description field  ***********************************-->
+    <div class="form-group">
+        <label for="description">Description*</label>
+    <input
+    required
+    ngModel 
+    name="description" 
+    formControlName="description"  
+    id="description" 
+    type="text" 
+    class="form-control">
+    <div 
+    class="alert alert-danger" 
+    *ngIf="description?.invalid && description?.touched">
+        <div *ngIf="description?.errors?.['required']">
+            Description is required
+        </div>
+    </div>
+</div>
+
+<!-- ///////////////////////////////////////////////////////////////////////////////////////////-->
+<!-- ****************************************** Date  ******************************************-->
+<div class="form-group input-group">
+    <label for="date">Date*</label>
+<input 
+placeholder="yyyy-mm-dd"
+dataType="string" 
+required
+name="date" 
+formControlName="date"  
+class="form-control"
+ngbDatepicker #d= "ngbDatepicker">
+<div class="input-group-append">
+<button 
+  class="btn btn-outline-secondary calendar"
+  (click)="d.toggle()"
+  type="button"><i class="fa fa-calendar"></i></button>
+</div>
+<div 
+class="alert alert-danger" 
+*ngIf="targetDate?.invalid && targetDate?.touched">
+    <div *ngIf="targetDate?.errors?.['required']">
+        Date is required
+    </div>
+</div>
+</div>
+
+<!-- ///////////////////////////////////////////////////////////////////////////////////////////-->
+<!-- ***************************************** Image  *****************************************-->
+    <div class="form-group">
+        <label for="image">Image</label>
+        <input type="text" name="image" id="image" formControlName="image" class="form-control">
+    </div>
+<!-- ///////////////////////////////////////////////////////////////////////////////////////////-->
+<!-- *********************************** Target Amount field  ***********************************-->
+<div class="form-group">
+    <label for="targetAmount">Target Amount*</label>
+<input
+required
+minlength="3"
+ngModel 
+name="targetAmount" 
+formControlName="targetAmount"  
+id="targetAmount" 
+type="text"
+NumberOnly
+class="form-control">
+<div 
+class="alert alert-danger" 
+*ngIf="targetAmount?.invalid && targetAmount?.touched">
+    <div *ngIf="targetAmount?.errors?.['required']">
+        Field is required
+    </div>
+    <div *ngIf="targetAmount?.errors?.['minlength']">
+        At least {{targetAmount?.errors?.['minlength'].requiredLength}} digits. No letters allowed
+    </div>
+</div>
+</div>
+
+<!-- ///////////////////////////////////////////////////////////////////////////////////////////-->
+<!-- *********************************** Saved Amount field  ***********************************-->
+<div class="form-group">
+    <label for="savedAmount">Saved Amount*</label>
+<input
+required
+ngModel 
+name="savedAmount" 
+formControlName="savedAmount"  
+id="savedAmount" 
+type="text"
+NumberOnly
+class="form-control">
+<div 
+class="alert alert-danger" 
+*ngIf="savedAmount?.invalid && savedAmount?.touched">
+    <div *ngIf="savedAmount?.errors?.['required']">
+        Field is required
+    </div>
+</div>
+</div>
+
+<div class="divButton">
+    <button
+        id="submitButton" 
+        class="btn btn-primary" 
+        type="submit" 
+        value="Save" 
+        [disabled]="editGoalForm.invalid">
+        Apply Changes
+</button>
+    <button 
+        type="button" 
+        class="btn btn-danger" 
+        [routerLink]="'/goals'">Cancel</button>
+    </div>
+</form>
+</div>

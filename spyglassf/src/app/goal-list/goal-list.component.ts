@@ -10,7 +10,7 @@ import { Goal } from '../model/Goal';
 })
 export class GoalListComponent implements OnInit {
 
-  constructor(private service: GoalApiService, private roiter: Router) { }
+  constructor(private service: GoalApiService, private router: Router) { }
 
   goalList?: Goal[];
   ngOnInit(): void {
@@ -30,7 +30,7 @@ export class GoalListComponent implements OnInit {
   }
 
   editGoal(id: number) {
-    // this.router.navigate([`/edit`, id]);
+    this.router.navigate([`/edit`, id]);
   }
 
 }

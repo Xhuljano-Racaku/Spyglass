@@ -10,13 +10,15 @@ import { NewGoalComponent } from './new-goal/new-goal.component';
 import { ErrorComponent } from './error/error.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { EditGoalComponent } from './edit-goal/edit-goal.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     GoalListComponent,
     NewGoalComponent,
-    ErrorComponent
+    ErrorComponent,
+    EditGoalComponent
   ],
   imports: [
     BrowserModule,
