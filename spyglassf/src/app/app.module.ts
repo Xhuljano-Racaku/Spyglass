@@ -26,7 +26,7 @@ import { EditGoalComponent } from './edit-goal/edit-goal.component';
     HttpClientModule,
     TableModule,
     ReactiveFormsModule,
-    NgbModule
+    NgbModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

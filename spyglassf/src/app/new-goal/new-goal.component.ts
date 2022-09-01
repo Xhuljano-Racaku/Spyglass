@@ -54,6 +54,7 @@ export class NewGoalComponent implements OnInit {
   }
 
   save(): void {
+    console.log(this.newGoalForm.value)
     this.service.save(this.newGoalForm.value).subscribe(resp =>{
       this.goal = resp;
       this.newGoalForm.reset();

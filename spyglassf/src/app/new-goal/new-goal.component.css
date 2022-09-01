@@ -33,12 +33,6 @@ button {
     cursor: default;
 }
 
-/* .btn{
-  border-radius: 50px;
-  padding: 0px 3px;
-  box-shadow: 0 0 2px 0 black;
-} */
-
 .btn {
   padding: 9px 25px;
   box-shadow: 0 0 2px 0 black;
