@@ -5,6 +5,7 @@ import java.util.List;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -25,6 +26,27 @@ public class GoalController {
 	public ResponseEntity<List<Goal>> findAll() {
 		System.out.println("GET all called");
 		return new ResponseEntity<List<Goal>>(service.findAll(), HttpStatus.OK);
+	}
+	
+	// Find all goals with sorting
+	@GetMapping("/{field}")
+	public ResponseEntity<List<Goal>> findAllWithSorting(@PathVariable String field) {
+		System.out.println("GET all with sorting called");
+		return new ResponseEntity<List<Goal>>(service.findAllWithSorting(field), HttpStatus.OK);
+	}
+	
+	// Find all goals with paginantion
+	@GetMapping("/pagination/{offset}/{pageSize}")
+	public ResponseEntity<Page<Goal>> findAllWithPAginantion(@PathVariable int offset,@PathVariable int pageSize) {
+		System.out.println("GET all with paginantion called");
+		return new ResponseEntity<Page<Goal>>(service.findAllWithPaginantion(offset,pageSize), HttpStatus.OK);
+	}
+	
+	// Find all goals with paginantion and sorting
+	@GetMapping("/paginationandsort/{offset}/{pageSize}/{field}")
+	public ResponseEntity<Page<Goal>> findAllWithPaginantionAndSorting(@PathVariable int offset,@PathVariable int pageSize, @PathVariable String field) {
+		System.out.println("GET all with paginantion called");
+		return new ResponseEntity<Page<Goal>>(service.findAllWithPaginantionAndSorting(offset,pageSize, field), HttpStatus.OK);
 	}
 	
 	// Find by id
