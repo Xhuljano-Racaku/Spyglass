@@ -11,7 +11,6 @@ import { ErrorComponent } from './error/error.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { EditGoalComponent } from './edit-goal/edit-goal.component';
-import {MatSortModule} from '@angular/material/sort';
 
 @NgModule({
   declarations: [
@@ -28,7 +27,6 @@ import {MatSortModule} from '@angular/material/sort';
     TableModule,
     ReactiveFormsModule,
     NgbModule,
-    MatSortModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
