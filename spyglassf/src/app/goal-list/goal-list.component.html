@@ -5,8 +5,9 @@
         <th>Description</th>
         <th>Image</th>
         <th>Date</th>
-        <th>Target Amount</th>
-        <th>Saved Amount</th>
+        <!-- <th>Target Amount</th>
+        <th>Saved Amount</th> -->
+        <th>Progress</th>
         <th style="text-align: center;">Actions</th>
     </tr>
     <tr *ngFor="let goals of goalList">
@@ -15,8 +16,9 @@
         <td>{{goals.description}}</td>
         <td><img [src]="goals.image" alt="item image" id="image"></td>
         <td>{{goals.targetDate | date: 'yyyy/MM/dd'}}</td>
-        <td>{{goals.targetAmount | currency}} </td>
-        <td>{{goals.savedAmount | currency}}</td>
+        <!-- <td>{{goals.targetAmount | currency}} </td>
+        <td>{{goals.savedAmount | currency}}</td> -->
+        <td>{{goals.savedAmount | currency}}/{{goals.targetAmount | currency}}</td>
         <td>
           <div style="display: flex; justify-content: space-around;  align-items: center; border-color: transparent;">
             <button class="button" (click)="editGoal(goals.id)"><i class="fa fa-edit" style="color: green"></i> Edit</button>

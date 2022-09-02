@@ -14,12 +14,12 @@ export class EditGoalComponent implements OnInit {
   currentGoal = new Goal();
   editGoalForm: FormGroup = new FormGroup({
     id: new FormControl(''),
-        name: new FormControl(''),
-        description: new FormControl(''),
-        image: new FormControl(''),
-        targetDate: new FormControl(''),
-        targetAmount: new FormControl(''),
-        savedAmount: new FormControl(''),
+        'name': new FormControl(''),
+        'description': new FormControl(''),
+        'image': new FormControl(''),
+        'date': new FormControl(''),
+        'targetAmount': new FormControl(''),
+        'savedAmount': new FormControl(''),
   })
 
   get name() {
@@ -75,8 +75,15 @@ export class EditGoalComponent implements OnInit {
   }
 
     edit(): void {
-      console.log(this.editGoalForm.value);
-      this.service.update(this.editGoalForm.value).subscribe(() => {});
+      let date = new Date(this.editGoalForm.value.date.year, this.editGoalForm.value.date.month -1, this.editGoalForm.value.date.day);
+      this.currentGoal.name =this.editGoalForm.value.name;
+      this.currentGoal.description =this.editGoalForm.value.description;
+      this.currentGoal.image =this.editGoalForm.value.image;
+      this.currentGoal.targetDate =date;
+      this.currentGoal.targetAmount =this.editGoalForm.value.targetAmount;
+      this.currentGoal.savedAmount =this.editGoalForm.value.savedAmount;
+      console.log(this.currentGoal)
+      this.service.update(this.currentGoal).subscribe(() => {});
       setTimeout(()=> {
         this.router.navigate(['/goals']);
       },50)

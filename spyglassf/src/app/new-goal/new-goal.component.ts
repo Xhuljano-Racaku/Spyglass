@@ -12,10 +12,8 @@ import {NgbDateStruct, NgbCalendar, NgbDate} from '@ng-bootstrap/ng-bootstrap';
 })
 export class NewGoalComponent implements OnInit {
 
-  model!: NgbDateStruct;
   newGoalForm: FormGroup= new FormGroup({});
   goal: Goal = new Goal();
-  // targetDate: Date = new Date()
   constructor(private service: GoalApiService, private router: Router) { }
 
   get name() {
@@ -54,8 +52,15 @@ export class NewGoalComponent implements OnInit {
   }
 
   save(): void {
-    console.log(this.newGoalForm.value)
-    this.service.save(this.newGoalForm.value).subscribe(resp =>{
+    let date = new Date(this.newGoalForm.value.date.year, this.newGoalForm.value.date.month -1, this.newGoalForm.value.date.day);
+    this.goal.name =this.newGoalForm.value.name;
+    this.goal.description =this.newGoalForm.value.description;
+    this.goal.image =this.newGoalForm.value.image;
+    this.goal.targetDate =date;
+    this.goal.targetAmount =this.newGoalForm.value.targetAmount;
+    this.goal.savedAmount =this.newGoalForm.value.savedAmount;
+    console.log(this.goal)
+    this.service.save(this.goal).subscribe(resp =>{
       this.goal = resp;
       this.newGoalForm.reset();
 
