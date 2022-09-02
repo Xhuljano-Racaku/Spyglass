@@ -36,10 +36,10 @@ public class GoalController {
 	}
 	
 	// Find all goals with paginantion
-	@GetMapping("/pagination/{offset}/{pageSize}")
-	public ResponseEntity<Page<Goal>> findAllWithPAginantion(@PathVariable int offset,@PathVariable int pageSize) {
+	@GetMapping("/pagination")
+	public ResponseEntity<Page<Goal>> findAllWithPaginantion(@RequestParam int page, @RequestParam int size) {
 		System.out.println("GET all with paginantion called");
-		return new ResponseEntity<Page<Goal>>(service.findAllWithPaginantion(offset,pageSize), HttpStatus.OK);
+		return new ResponseEntity<Page<Goal>>(service.findAllWithPaginantion(page, size), HttpStatus.OK);
 	}
 	
 	// Find all goals with paginantion and sorting

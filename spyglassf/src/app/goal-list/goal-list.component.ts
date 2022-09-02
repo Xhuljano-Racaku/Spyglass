@@ -12,11 +12,19 @@ export class GoalListComponent implements OnInit {
 
   constructor(private service: GoalApiService, private router: Router) { }
 
+  // page: number = 3;
+  // offset: number = 1;
   goalList?: Goal[];
   ngOnInit(): void {
-    this.service.findAll().subscribe((data) => {
+    this.findGoals()
+  }
+
+  findGoals() {
+    console.log(this.goalList);
+    // this.service.findAllWithPagination(this.offset, this.page).subscribe((data) => {
+      this.service.findAll().subscribe((data) => {
       this.goalList = data;
-    })
+    });
   }
 
   deleteGoal(id: number) {
@@ -32,5 +40,11 @@ export class GoalListComponent implements OnInit {
   editGoal(id: number) {
     this.router.navigate([`/edit`, id]);
   }
+
+  // pageChangeEvent(event: number) {
+  //   this.offset= event;
+  //   this.page = event;
+  //   this.findGoals();
+  // }
 
 }

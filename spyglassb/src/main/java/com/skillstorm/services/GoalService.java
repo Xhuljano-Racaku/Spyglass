@@ -15,7 +15,6 @@ import com.skillstorm.repository.GoalRepository;
 @Service
 @Transactional
 public class GoalService {
-	
 	@Autowired
 	private GoalRepository repository;
 	
@@ -30,12 +29,11 @@ public class GoalService {
 	}
 	
 	//Find all with paginantion
-	public Page<Goal> findAllWithPaginantion(int offset, int pageSize){
-		Page<Goal> goals = repository.findAll(PageRequest.of(offset, pageSize));
-		return goals;
+	public Page<Goal> findAllWithPaginantion(int page, int size){
+		return repository.findAll(PageRequest.of(page, size));
 	}
 	
-	//Find all with paginantion
+	//Find all with paginantion and sorting
 	public Page<Goal> findAllWithPaginantionAndSorting(int offset, int pageSize, String field){
 		Page<Goal> goals = repository.findAll(PageRequest.of(offset, pageSize).withSort(Sort.by(field)));
 		return goals;
