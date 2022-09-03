@@ -56,6 +56,9 @@ export class EditGoalComponent implements OnInit {
         this.currentGoal = goalList.find((goal: { id: number; })=> {
           return goal.id === +params.get("id");
         });
+
+
+        console.log(this.currentGoal.targetDate)
   
         /** Autofill the editForm with the current values and all fields are required to fill
             excpet the image field and the itemNumber which we can not update it since it's unique

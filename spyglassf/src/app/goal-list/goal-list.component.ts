@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { GoalApiService } from '../goal-api.service';
@@ -12,18 +13,20 @@ export class GoalListComponent implements OnInit {
 
   constructor(private service: GoalApiService, private router: Router) { }
 
-  // page: number = 3;
-  // offset: number = 1;
+  page: number;
+  size: number;
   goalList?: Goal[];
   ngOnInit(): void {
     this.findGoals()
   }
 
   findGoals() {
-    console.log(this.goalList);
-    // this.service.findAllWithPagination(this.offset, this.page).subscribe((data) => {
-      this.service.findAll().subscribe((data) => {
-      this.goalList = data;
+    this.service.findAllWithPagination(this.page, this.size).subscribe((data) => {
+      // this.service.findAll().subscribe((data) => {
+      //   this.goalList = data;
+      //   console.log(data);
+      this.goalList = data.content;
+      console.log(data.content);
     });
   }
 
@@ -41,10 +44,10 @@ export class GoalListComponent implements OnInit {
     this.router.navigate([`/edit`, id]);
   }
 
-  // pageChangeEvent(event: number) {
-  //   this.offset= event;
-  //   this.page = event;
-  //   this.findGoals();
-  // }
+  pageChangeEvent(event: number) {
+    this.page= event;
+    this.size = event;
+    this.findGoals();
+  }
 
 }

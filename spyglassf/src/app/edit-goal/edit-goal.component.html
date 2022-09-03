@@ -59,9 +59,9 @@
     <label for="date">Date*</label>
 <input 
 id="date"
-value="{{currentGoal.targetDate}}"
+type="text"
+[value]="currentGoal.targetDate"
 placeholder="yyyy-mm-dd"
-dataType="string" 
 required
 name="date" 
 formControlName="date"  

@@ -10,8 +10,8 @@
         <th>Progress</th>
         <th style="text-align: center;">Actions</th>
     </tr>
-    <tr *ngFor="let goals of goalList">
-        <td>{{goals.id}}</td>
+    <tr *ngFor="let goals of goalList; let i = index">
+        <td>{{i+1}}</td>
         <td>{{goals.name}}</td>
         <td>{{goals.description}}</td>
         <td><img [src]="goals.image" alt="item image" id="image"></td>
@@ -28,4 +28,4 @@
         </td>
        </tr>
 </table>
-<!-- <pagination-controls (pageChange)="pageChangeEvent($event)"></pagination-controls> -->
+<pagination-controls (pageChange)="pageChangeEvent($event)"></pagination-controls>

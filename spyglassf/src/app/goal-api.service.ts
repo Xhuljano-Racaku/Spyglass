@@ -17,10 +17,10 @@ export class GoalApiService {
     return this.http.get(`${this.baseUrl}`).pipe(catchError(this.handleError));
   }
 
-   // Find all goals api with pagination
-   findAllWithPagination(offset:number = 0, page: number = 5): Observable<any>{
-    return this.http.get(`${this.baseUrl}/pagination/${offset}/${page}`).pipe(catchError(this.handleError));
-  }
+    // Find all goals api with pagination
+    findAllWithPagination(page:number = 0, size: number = 5): Observable<any>{
+      return this.http.get<any>(`${this.baseUrl}/pagination?page=${page}&size=${size}`).pipe(catchError(this.handleError));
+    }
 
   // Find goal by id api
   findById(id: number): Observable<any> {
