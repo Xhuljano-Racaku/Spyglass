@@ -15,6 +15,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import {MatTableModule} from '@angular/material/table';
 import {MatSortModule} from '@angular/material/sort';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 
 @NgModule({
@@ -35,6 +36,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
     NgxPaginationModule,
     MatTableModule,
     MatSortModule,
+    MatPaginatorModule,
     BrowserAnimationsModule,
     
   ],
