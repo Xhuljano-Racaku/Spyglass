@@ -17,7 +17,6 @@ export class GoalListComponent implements OnInit {
 
   // page: number;
   // size: number;
-  differenceAmount: number;
   goalList?: Goal[];
   displayedColumns: string[] = ['id', 'name', 'description', 'image', 'date', 'progress', 'actions']
   ngOnInit(): void {
