@@ -66,6 +66,7 @@ public class GoalController {
 	// Create a goal
 	@PostMapping
 	public ResponseEntity<Goal> save(@Valid @RequestBody Goal goal) {
+		System.out.println(goal);
 		System.out.println("POST called");
 		return new ResponseEntity<>(service.save(goal), HttpStatus.CREATED);
 	}
