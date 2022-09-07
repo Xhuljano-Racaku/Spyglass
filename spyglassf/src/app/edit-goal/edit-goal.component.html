@@ -73,13 +73,11 @@ ngbDatepicker #d= "ngbDatepicker">
   (click)="d.toggle()"
   type="button"><i class="fa fa-calendar"></i></button>
 </div>
-<div 
-class="alert alert-danger" 
-*ngIf="targetDate?.invalid && targetDate?.touched">
+</div>
+<div class="alert alert-danger" *ngIf="targetDate?.invalid && targetDate?.touched">
     <div *ngIf="targetDate?.errors?.['required']">
         Date is required
     </div>
-</div>
 </div>
 
 <!-- ///////////////////////////////////////////////////////////////////////////////////////////-->

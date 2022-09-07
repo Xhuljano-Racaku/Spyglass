@@ -12,6 +12,9 @@ import { Goal } from '../model/Goal';
 export class EditGoalComponent implements OnInit {
 
   currentGoal = new Goal();
+  /** Autofill the editForm with the current values and all fields are required to fill
+            excpet the image field and the itemNumber which we can not update it since it's unique
+  */
   editGoalForm: FormGroup = new FormGroup({
     id: new FormControl(''),
         'name': new FormControl(''),
@@ -60,9 +63,7 @@ export class EditGoalComponent implements OnInit {
 
         console.log(this.currentGoal.targetDate)
   
-        /** Autofill the editForm with the current values and all fields are required to fill
-            excpet the image field and the itemNumber which we can not update it since it's unique
-        */
+        
         this.editGoalForm = new FormGroup({
           id: new FormControl(this.currentGoal.id),
           'name': new FormControl(this.currentGoal.name, Validators.required),
