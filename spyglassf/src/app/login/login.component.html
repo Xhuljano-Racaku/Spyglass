@@ -1,29 +1,35 @@
 <div class="container">
-    <form #loginform="ngForm" (ngSubmit)="loginUser()">
-        <small class="text-danger">{{message}}</small>
-        <div class="form-group">
-            <label for="email">Email:</label>
-            <input type="email" class="form-control" aria-describedby="emailHelp" placeholder="Enter email" name="email"
-                [(ngModel)]="user.email" required pattern="^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$" #email="ngModel" [class.is-invalid]="email.invalid && email.touched">
-            <!-- <small class="text-danger" [class.d-none]="email.valid || email.untouched">This field is required<br></small> -->
-            <div *ngIf="email.errors && (email.invalid && email.touched)">
-                <small class="text-danger" *ngIf="email.errors?.['required']">This field is required <br></small>
-                <small class="text-danger" *ngIf="email.errors?.['pattern']">Invalid format. Please enter a valid email <br></small>
+    <div class="form">
+        <h2 class="textual">Log In</h2>
+        <form #loginform="ngForm" (ngSubmit)="loginUser()">
+            <small class="text-danger">{{message}}</small>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" class="form-control" aria-describedby="emailHelp" placeholder="Enter email"
+                    name="email" [(ngModel)]="user.email" required pattern="^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$"
+                    #email="ngModel" [class.is-invalid]="email.invalid && email.touched">
+                <!-- <small class="text-danger" [class.d-none]="email.valid || email.untouched">This field is required<br></small> -->
+                <div *ngIf="email.errors && (email.invalid && email.touched)">
+                    <small class="text-danger" *ngIf="email.errors?.['required']">This field is required <br></small>
+                    <small class="text-danger" *ngIf="email.errors?.['pattern']">Invalid format. Please enter a valid
+                        email <br></small>
+                </div>
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                    else.</small>
             </div>
-            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-        </div>
-        <div class="form-group">
-            <label for="[wd]">Password:</label>
-            <input type="password" class="form-control" placeholder="Password" name="password"
-                [(ngModel)]="user.password" [class.is-invalid]="password.invalid && password.touched" required
-                #password="ngModel">
-            <small class="text-danger" [class.d-none]="password.valid || password.untouched">This field is required
-                <br></small>
-        </div>
-        <div class="checkbox">
-            <label><input type="checkbox" name="remember">Remember me</label>
-        </div>
-        <button [disabled]="loginform.form.invalid" type="submit" class="btn btn-primary">Login</button>
-    </form>
-    <small class="float-end" (click)="goToRegister()">New user? Register here</small>
+            <div class="form-group">
+                <label for="[password]">Password:</label>
+                <input type="password" class="form-control" placeholder="Password" name="password"
+                    [(ngModel)]="user.password" [class.is-invalid]="password.invalid && password.touched" required
+                    #password="ngModel">
+                <small class="text-danger" [class.d-none]="password.valid || password.untouched">This field is required
+                    <br></small>
+            </div>
+            <div class="checkbox">
+                <label><input type="checkbox" name="remember">Remember me</label>
+            </div>
+            <button [disabled]="loginform.form.invalid" type="submit" class="btn btn-primary">Login</button>
+            <small class="float-end" (click)="goToRegister()">New user? Register here</small>
+        </form>
+    </div>
 </div>

@@ -63,6 +63,9 @@ export class NewGoalComponent implements OnInit {
     this.service.save(this.goal).subscribe(resp =>{
       this.goal = resp;
       this.newGoalForm.reset();
+      setTimeout(()=> {
+        this.router.navigate(['/goals']);
+      },50)
 
     })
   }

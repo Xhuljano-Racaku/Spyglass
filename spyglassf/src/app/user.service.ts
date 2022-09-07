@@ -15,6 +15,10 @@ export class UserService {
     return this.http.post(`${this.baseUrl}/login`, user).pipe(catchError(this.handleError));
   }
 
+  public register(user : User):Observable<any>{
+    return this.http.post(this.baseUrl, user).pipe(catchError(this.handleError));
+  }
+
   private handleError(error: HttpErrorResponse){
     console.log(error)
     return throwError(() => {
