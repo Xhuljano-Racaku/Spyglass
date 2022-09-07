@@ -1,9 +1,14 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <nav>
   <div class="home">
-    <button class="button" [routerLink]="['/goals']"><i class="fa fa-home" style="color: black"></i> Home</button>
+    <button id="homeButton" class="button" [routerLink]="['/goals']"><i class="fa fa-home" style="color: rgb(198, 25, 25)"></i> Home</button>
   </div>
-  <button id="addButton" class="button" [routerLink]="['/add']"><i class="fa fa-plus" style="color: black"></i> Add Goals</button>
+  <div>
+    <button id="addButton" class="button" [routerLink]="['/add']"><i class="fa fa-plus" style="color: rgb(198, 25, 25)"></i> Add Goals</button>
+  </div>
+  <div>
+    <button style="font-size:36px; color: red; border: none;" [routerLink]="['/login']"> <i class="fa fa-sign-out"></i></button>
+  </div>
 </nav>
 <h1 id="text">SPYGLASS <i class="fa fa-handshake-o" style="font-size:35px;color:(238, 136, 2)"></i></h1>
 

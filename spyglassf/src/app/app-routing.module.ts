@@ -15,7 +15,7 @@ const routes: Routes = [
   path: 'login', component: LoginComponent
   },
   {
-  path: '', component: GoalListComponent
+  path: '', component: LoginComponent
   },
   {
     path: 'goals', component: GoalListComponent
@@ -27,7 +27,7 @@ const routes: Routes = [
     path: 'edit/:id', component: EditGoalComponent
   },
   {
-    path: '*', component: ErrorComponent
+    path: '**', component: ErrorComponent
   }
 ];
 

@@ -21,8 +21,8 @@ td.mat-cell, th.mat-header-cell {
 
 .mat-column-id {
   width: 32px;
-  border-bottom: 1px solid currentColor;
-  border-right: 1px solid currentColor;
+  border-bottom: 1px solid rgb(198, 25, 25);
+  border-right: 1px solid rgb(198, 25, 25);
   padding-right: 24px;
   text-align: center;
 }
@@ -31,34 +31,34 @@ td.mat-cell, th.mat-header-cell {
   padding-left: 16px;
   font-size: 20px;
   text-align: center;
-  border-bottom: 1px solid currentColor;
+  border-bottom: 1px solid rgb(198, 25, 25);
 }
 
 .mat-column-description {
   font-style: italic;
   text-align: center;
-  border-bottom: 1px solid currentColor;
+  border-bottom: 1px solid rgb(198, 25, 25);
 }
 
 .mat-column-image {
   width: 32px;
-  border-bottom: 1px solid currentColor;
+  border-bottom: 1px solid rgb(198, 25, 25);
 }
 
 .mat-column-date {
   text-align: center;
-  border-bottom: 1px solid currentColor;
+  border-bottom: 1px solid rgb(198, 25, 25);
 }
 
 .mat-column-progress {
   text-align: center;
   font-weight: bold;
-  border-bottom: 1px solid currentColor;
+  border-bottom: 1px solid rgb(198, 25, 25);
 }
 
 .mat-column-actions {
   text-align: center;
-  border-bottom: 1px solid currentColor;
+  border-bottom: 1px solid rgb(198, 25, 25);
 }
 
 .mat-sort-header-container {
@@ -75,6 +75,7 @@ td.mat-cell, th.mat-header-cell {
   height: 30px;
   cursor: pointer;
   background-color: rgb(255, 255, 255);
+  color: rgb(198, 25, 25);
   border-radius: 50px;
   border: 2px solid rgb(188, 188, 188);
 }
