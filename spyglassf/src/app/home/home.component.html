@@ -1,0 +1,16 @@
+<!-- *************************************** NAV BAR ******************************************** -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<nav *ngIf="service.isAuthenticated">
+  <div class="home">
+    <button id="homeButton" class="button" 
+    (click)="goToGoalList()"><i class="fa fa-home" style="color: rgb(106, 32, 32)"></i> Home</button>
+  </div>
+  <div>
+    <button id="addButton" class="button" (click)="goToAddGoal()"><i class="fa fa-plus" style="color: rgb(106, 32, 32)"></i> Add Goals</button>
+  </div>
+  <div>
+    <button class="signoutButton" (click)="logOut()"> <i class="fa fa-sign-out"></i></button>
+  </div>
+</nav>
+<h1 id="text">SPYGLASS <i class="fa fa-handshake-o" style="font-size:35px;color:(238, 136, 2)"></i></h1>

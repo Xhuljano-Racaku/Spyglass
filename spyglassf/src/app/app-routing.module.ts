@@ -3,11 +3,19 @@ import { RouterModule, Routes } from '@angular/router';
 import { EditGoalComponent } from './edit-goal/edit-goal.component';
 import { ErrorComponent } from './error/error.component';
 import { GoalListComponent } from './goal-list/goal-list.component';
+import { LoginComponent } from './login/login.component';
 import { NewGoalComponent } from './new-goal/new-goal.component';
+import { SignupComponent } from './signup/signup.component';
 
 const routes: Routes = [
   {
-  path: '', component: GoalListComponent
+  path: 'register', component: SignupComponent
+  },
+  {
+  path: 'login', component: LoginComponent
+  },
+  {
+  path: '', component: LoginComponent
   },
   {
     path: 'goals', component: GoalListComponent
@@ -19,7 +27,7 @@ const routes: Routes = [
     path: 'edit/:id', component: EditGoalComponent
   },
   {
-    path: '*', component: ErrorComponent
+    path: '**', component: ErrorComponent
   }
 ];
 

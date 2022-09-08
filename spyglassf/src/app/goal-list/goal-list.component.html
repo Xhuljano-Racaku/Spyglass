@@ -30,7 +30,7 @@
       <th mat-header-cell *matHeaderCellDef>
         <h5> Image </h5>
       </th>
-      <td mat-cell *matCellDef="let goals"> <img [src]="goals.image" alt="item image" id="image"> </td>
+      <td mat-cell *matCellDef="let goals"> <img [src]="goals.image" alt="goal image" id="image"> </td>
     </ng-container>
 
     <ng-container matColumnDef="date">
@@ -65,34 +65,22 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let goalList; columns: displayedColumns;"></tr>
   </table>
-  <!-- <mat-paginator [pageSizeOptions]="[5, 10, 20]"
-  showFirstLastButtons 
-  aria-label="Select page of periodic elements">
-</mat-paginator> -->
 </div>
-<!-- <tr>
-        <th>Goal #</th>
-        <th>Name</th>
-        <th>Description</th>
-        <th>Image</th>
-        <th>Date</th>
-        <th>Progress</th>
-        <th style="text-align: center;">Actions</th>
-    </tr>
-    <tr *ngFor="let goals of goalList; let i = index">
-        <td>{{i+1}}</td>
-        <td>{{goals.name}}</td>
-        <td>{{goals.description}}</td>
-        <td><img [src]="goals.image" alt="item image" id="image"></td>
-        <td>{{goals.targetDate | date: 'yyyy/MM/dd'}}</td>
-        <td>{{goals.savedAmount | currency}}/{{goals.targetAmount | currency}}</td>
-        <td>
-          <div style="display: flex; justify-content: space-around;  align-items: center; border-color: transparent;">
-            <button class="button" (click)="editGoal(goals.id)"><i class="fa fa-edit" style="color: green"></i> Edit</button>
-            <span>|</span>
-            <button class="button" (click)="deleteGoal(goals.id)"><i class="fa fa-trash" style="color: red"></i> Delete</button>
-          </div>
-        </td>
-       </tr>
-</table>
-<pagination-controls (pageChange)="pageChangeEvent($event)"></pagination-controls> -->
+
+<!--  *************************************** FOOTER ******************************************** -->
+<footer>
+  <div class="footer-content">
+      <h3>SPYGLASS</h3>
+      <p>Follow us</p>
+      <ul class="socials">
+        <li><a href="https://www.facebook.com/Vanguard/" target="_blank"><i class="fa fa-facebook"></i></a></li>
+        <li><a href="https://twitter.com/Vanguard_Group" target="_blank"><i class="fa fa-twitter"></i></a></li>
+        <li><a href="https://www.linkedin.com/company/vanguard/" target="_blank"><i class="fa fa-linkedin-square"></i></a></li>
+        <li><a href="https://www.instagram.com/vanguardgroup/?hl=en" target="_blank"><i class="fa fa-instagram"></i></a></li>
+        
+      </ul>
+  </div>
+  <div class="footer-bottom">
+      <p>copyright &copy;2022 SPYGLASS. designed by <span>SPYGLASS</span></p>
+  </div>
+</footer>

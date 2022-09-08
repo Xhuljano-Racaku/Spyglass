@@ -28,6 +28,13 @@ public class GoalController {
 		return new ResponseEntity<List<Goal>>(service.findAll(), HttpStatus.OK);
 	}
 	
+	// Find all goals by user id
+	@GetMapping("/user/{userId}")
+	public ResponseEntity<List<Goal>> findGoalsByUserId(@PathVariable int userId) {
+		System.out.println("GET all called");
+		return new ResponseEntity<List<Goal>>(service.findGoalsByUserId(userId), HttpStatus.OK);
+			}
+	
 	// Find all goals with sorting
 	@GetMapping("/{field}")
 	public ResponseEntity<List<Goal>> findAllWithSorting(@PathVariable String field) {

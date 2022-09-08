@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { GoalApiService } from '../goal-api.service';
 import { Goal } from '../model/Goal';
-import {NgbDateStruct, NgbCalendar, NgbDate} from '@ng-bootstrap/ng-bootstrap';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-new-goal',
@@ -12,10 +12,11 @@ import {NgbDateStruct, NgbCalendar, NgbDate} from '@ng-bootstrap/ng-bootstrap';
 })
 export class NewGoalComponent implements OnInit {
 
+  user: number = 0;
   newGoalForm: FormGroup= new FormGroup({});
   goal: Goal = new Goal();
-  constructor(private service: GoalApiService, private router: Router) { }
-
+  constructor(private service: GoalApiService, private router: Router, private route: ActivatedRoute, private userService : UserService) {
+   }
   get name() {
     return this.newGoalForm.get('name')
   }
@@ -41,6 +42,10 @@ export class NewGoalComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.route.queryParams.subscribe(params => {
+      this.user = params['user']
+    })
+
     this.newGoalForm = new FormGroup({
       'name': new FormControl('', Validators.required),
       'description': new FormControl('', Validators.required),
@@ -52,6 +57,7 @@ export class NewGoalComponent implements OnInit {
   }
 
   save(): void {
+    this.goal.user.userId = this.user
     let date = new Date(this.newGoalForm.value.date.year, this.newGoalForm.value.date.month -1, this.newGoalForm.value.date.day);
     this.goal.name =this.newGoalForm.value.name;
     this.goal.description =this.newGoalForm.value.description;
@@ -63,7 +69,14 @@ export class NewGoalComponent implements OnInit {
     this.service.save(this.goal).subscribe(resp =>{
       this.goal = resp;
       this.newGoalForm.reset();
+      setTimeout(()=> {
+        this.router.navigate(['/goals'], {queryParams: {user: this.userService.activeUser}});
+      },50)
 
     })
+  }
+
+  goToGoalList(){
+    this.router.navigate(['/goals'], {queryParams: {user: this.userService.activeUser}})
   }
 }

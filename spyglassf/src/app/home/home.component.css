@@ -1,0 +1,62 @@
+nav {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 10px; 
+    background-color: rgb(59, 16, 16);
+    height: 60px;
+    border: none;
+    box-shadow: 0 0 5px 0 rgb(168, 168, 168);
+}
+
+.home {
+    display: flex; 
+    justify-content: space-between;  
+    align-items: center; 
+    column-gap: 10px;
+}
+
+.button, #addButton {
+    background-color: rgb(255, 255, 255);
+    color: rgb(106, 32, 32);
+    cursor: pointer;
+    width: 110px;
+    height: 35px;
+    font-size :17px;
+    border-radius: 50px;
+    border: 2px solid rgb(0, 0, 0);
+}
+
+#addButton {
+    font-size: 16px;
+    position:absolute;
+    top: 14px;
+    right:80px;
+}
+
+#addButton:hover {
+    background-color:#e7e7e7;
+    ;
+}
+
+.button:hover {
+    background-color: #e7e7e7;
+}
+
+#text {
+    color: rgb(83, 23, 23);
+    padding-left: 10px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-shadow: 1px 1px rgb(84, 84, 84);
+}
+
+.signoutButton{
+    font-size:36px; 
+    color: white; 
+    background-color: rgb(59, 16, 16); 
+    border: none;
+}
+
+.signoutButton:hover {
+    color: #e7e7e7;
+}

@@ -1,35 +1,3 @@
-/* table {
-    font-family: Arial, Helvetica, sans-serif;
-    border-collapse: collapse;
-    width: 95%;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-    background-color: #f3f0f0;
-    box-shadow: 0 0 5px 0 rgb(168, 168, 168);
-  }
-  
-  #merchandise tr:hover {background-color: #ddd;}
-  
-  #merchandise th {
-    padding-top: 12px;
-    padding-bottom: 12px;
-    text-align: left;
-    background-color: rgb(238, 136, 2);
-    color: black  ;
-    box-shadow: 0 0 2px 0 black;
-  }
-
-  #image {
-    width: 250px;
-    height: 150px;
-}
-
-
-#price:hover {
-  cursor: pointer;
-} */
-
 table {
   width: 90%;
   margin-left: auto;
@@ -53,8 +21,8 @@ td.mat-cell, th.mat-header-cell {
 
 .mat-column-id {
   width: 32px;
-  border-bottom: 1px solid currentColor;
-  border-right: 1px solid currentColor;
+  border-bottom: 1px solid rgb(106, 32, 32);
+  border-right: 1px solid rgb(106, 32, 32);
   padding-right: 24px;
   text-align: center;
 }
@@ -63,34 +31,34 @@ td.mat-cell, th.mat-header-cell {
   padding-left: 16px;
   font-size: 20px;
   text-align: center;
-  border-bottom: 1px solid currentColor;
+  border-bottom: 1px solid rgb(106, 32, 32);
 }
 
 .mat-column-description {
   font-style: italic;
   text-align: center;
-  border-bottom: 1px solid currentColor;
+  border-bottom: 1px solid rgb(106, 32, 32);
 }
 
 .mat-column-image {
   width: 32px;
-  border-bottom: 1px solid currentColor;
+  border-bottom: 1px solid rgb(106, 32, 32);
 }
 
 .mat-column-date {
   text-align: center;
-  border-bottom: 1px solid currentColor;
+  border-bottom: 1px solid rgb(106, 32, 32);
 }
 
 .mat-column-progress {
   text-align: center;
   font-weight: bold;
-  border-bottom: 1px solid currentColor;
+  border-bottom: 1px solid rgb(106, 32, 32);
 }
 
 .mat-column-actions {
   text-align: center;
-  border-bottom: 1px solid currentColor;
+  border-bottom: 1px solid rgb(106, 32, 32);
 }
 
 .mat-sort-header-container {
@@ -107,10 +75,93 @@ td.mat-cell, th.mat-header-cell {
   height: 30px;
   cursor: pointer;
   background-color: rgb(255, 255, 255);
+  color: rgb(106, 32, 32);
   border-radius: 50px;
-  border: 2px solid rgb(188, 188, 188);
+  border: 2px solid rgb(83, 23, 23);
 }
 
 .button:hover {
   background-color: #e7e7e7;
+}
+
+
+/* ============================ FOOTER ================================ */
+footer{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgb(59, 16, 16);
+  overflow: auto;
+  width: 100vw;
+  font-family: "Open Sans";
+  /* padding-top: 5px; */
+  color: white;
+}
+
+.footer-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.footer-content h3{
+  font-size: 1.8rem;
+  font-weight: 400;
+  text-transform: capitalize;
+  line-height: 3rem;
+}
+
+.footer-content p{
+  max-width: 500px;
+  margin: 10px auto;
+  line-height: 28px;
+  font-size: 14px;
+}
+
+.socials{
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem 0 3rem 0;
+}
+
+.socials li{
+  margin: 0 10px;
+}
+
+.socials a{
+  text-decoration: none;
+  color: white;
+}
+
+.socials a i{
+  font-size: 1.1rem;
+  transition: color .4s ease;
+}
+
+.socials a:hover i{
+  color: aqua;
+}
+
+.footer-bottom{
+  background: rgb(40, 8, 8);
+  width: 100vw;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.footer-bottom p{
+  font-size: 14px;
+  word-spacing: 2px;
+  text-transform: capitalize;
+}
+
+.footer-bottom span{
+  text-transform: uppercase;
+  opacity: .4;
+  font-weight: 200;
 }

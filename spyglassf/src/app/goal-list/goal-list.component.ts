@@ -1,9 +1,10 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit} from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { GoalApiService } from '../goal-api.service';
 import { Goal } from '../model/Goal';
 import {MatSort, Sort} from '@angular/material/sort';
+import { UserService } from '../user.service';
 
 
 @Component({
@@ -13,25 +14,29 @@ import {MatSort, Sort} from '@angular/material/sort';
 })
 export class GoalListComponent implements OnInit {
 
-  constructor(private service: GoalApiService, private router: Router) { }
+  constructor(private service: GoalApiService, private router: Router, private route: ActivatedRoute, private userService : UserService) { }
 
-  // page: number;
-  // size: number;
+  user: number = 0
   goalList?: Goal[];
   displayedColumns: string[] = ['id', 'name', 'description', 'image', 'date', 'progress', 'actions']
   ngOnInit(): void {
-    this.findGoals()
+    this.userService.setIsAuthenticated(true);
+    this.route.queryParams.subscribe(params => {
+      this.user = params['user']
+      console.log(this.user)
+      this.service.findByUser(params['user']).subscribe(resp =>{
+        this.goalList = resp
+      })
+    })
+    // this.findGoals()
   }
 
-  findGoals() {
-    // this.service.findAllWithPagination(this.page, this.size).subscribe((data) => {
-      this.service.findAll().subscribe((data) => {
-        this.goalList = data;
-        console.log(data);
-      // this.goalList = data.content;
-      // console.log(data.content);
-    });
-  }
+  // findGoals() {
+  //     this.service.findAll().subscribe((data) => {
+  //       this.goalList = data;
+  //       console.log(data);
+  //   });
+  // }
 
   deleteGoal(id: number) {
     let confirmation = confirm("Are you sure you want to delete this item?");

@@ -1,144 +1,108 @@
 <div class="container">
     <form class="form" [formGroup]="newGoalForm" (ngSubmit)="save()">
-        <h1>What is your plan?</h1> 
+        <h1>What is your plan?</h1>
 
-    <!-- ///////////////////////////////////////////////////////////////////////////////////////////-->
-    <!-- *********************************** Name field  ***********************************-->
-        <div class="form-group">    
+        <!-- ///////////////////////////////////////////////////////////////////////////////////////////-->
+        <!-- *********************************** Name field  ***********************************-->
+        <div class="form-group">
             <label for="name"> Name*</label>
-        <input
-        required
-        ngModel 
-        name="name" 
-        formControlName="name" 
-        id="name" 
-        type="text" 
-        class="form-control">
-            <div 
-            class="alert alert-danger" 
-            *ngIf="name?.invalid && name?.touched">
+            <input required ngModel name="name" formControlName="name" id="name" type="text" class="form-control">
+            <div class="alert alert-danger" *ngIf="name?.invalid && name?.touched">
                 <div *ngIf="name?.errors?.['required']">
                     Name is required
                 </div>
             </div>
-    </div>
+        </div>
 
-    <!-- ///////////////////////////////////////////////////////////////////////////////////////////-->
-    <!-- *********************************** Description field  ***********************************-->
+        <!-- ///////////////////////////////////////////////////////////////////////////////////////////-->
+        <!-- *********************************** Description field  ***********************************-->
         <div class="form-group">
             <label for="description">Description*</label>
-        <input
-        required
-        ngModel 
-        name="description" 
-        formControlName="description"  
-        id="description" 
-        type="text" 
-        class="form-control">
-        <div 
-        class="alert alert-danger" 
-        *ngIf="description?.invalid && description?.touched">
-            <div *ngIf="description?.errors?.['required']">
-                Description is required
+            <input required ngModel name="description" formControlName="description" id="description" type="text"
+                class="form-control">
+            <div class="alert alert-danger" *ngIf="description?.invalid && description?.touched">
+                <div *ngIf="description?.errors?.['required']">
+                    Description is required
+                </div>
             </div>
         </div>
-    </div>
 
-    <!-- ///////////////////////////////////////////////////////////////////////////////////////////-->
-    <!-- ****************************************** Date  ******************************************-->
-    <div class="form-group input-group">
-        <label for="date">Date*</label>
-    <input 
-    id="date"
-    placeholder="yyyy-mm-dd"
-    dataType="date" 
-    required
-    name="date" 
-    formControlName="date"  
-    class="form-control"
-    ngbDatepicker #d= "ngbDatepicker">
-    <div class="input-group-append">
-    <button 
-      class="btn btn-outline-secondary calendar"
-      (click)="d.toggle()"
-      type="button"><i class="fa fa-calendar"></i></button>
-  </div>
-    <div 
-    class="alert alert-danger" 
-    *ngIf="targetDate?.invalid && targetDate?.touched">
-        <div *ngIf="targetDate?.errors?.['required']">
-            Date is required
+        <!-- ///////////////////////////////////////////////////////////////////////////////////////////-->
+        <!-- ****************************************** Date  ******************************************-->
+        <div class="form-group input-group">
+            <label for="date">Date*</label>
+            <input id="date" placeholder="yyyy-mm-dd" dataType="date" required name="date" formControlName="date"
+                class="form-control" ngbDatepicker #d="ngbDatepicker">
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"><i
+                        class="fa fa-calendar"></i></button>
+            </div>
         </div>
-    </div>
-</div>
+        <div class="alert alert-danger" *ngIf="targetDate?.invalid && targetDate?.touched">
+            <div *ngIf="targetDate?.errors?.['required']">
+                Date is required
+            </div>
+        </div>
 
-    <!-- ///////////////////////////////////////////////////////////////////////////////////////////-->
-    <!-- ***************************************** Image  *****************************************-->
+        <!-- ///////////////////////////////////////////////////////////////////////////////////////////-->
+        <!-- ***************************************** Image  *****************************************-->
         <div class="form-group">
             <label for="image">Image</label>
             <input type="text" name="image" id="image" formControlName="image" class="form-control">
         </div>
-    <!-- ///////////////////////////////////////////////////////////////////////////////////////////-->
-    <!-- *********************************** Target Amount field  ***********************************-->
-    <div class="form-group">
-        <label for="targetAmount">Target Amount*</label>
-    <input
-    required
-    minlength="3"
-    ngModel 
-    name="targetAmount" 
-    formControlName="targetAmount"  
-    id="targetAmount" 
-    type="text"
-    NumberOnly
-    class="form-control">
-    <div 
-    class="alert alert-danger" 
-    *ngIf="targetAmount?.invalid && targetAmount?.touched">
-        <div *ngIf="targetAmount?.errors?.['required']">
-            Field is required
+        <!-- ///////////////////////////////////////////////////////////////////////////////////////////-->
+        <!-- *********************************** Target Amount field  ***********************************-->
+        <div class="form-group">
+            <label for="targetAmount">Target Amount*</label>
+            <input required minlength="3" ngModel name="targetAmount" formControlName="targetAmount" id="targetAmount"
+                type="text" NumberOnly class="form-control">
+            <div class="alert alert-danger" *ngIf="targetAmount?.invalid && targetAmount?.touched">
+                <div *ngIf="targetAmount?.errors?.['required']">
+                    Field is required
+                </div>
+                <div *ngIf="targetAmount?.errors?.['minlength']">
+                    At least {{targetAmount?.errors?.['minlength'].requiredLength}} digits. No letters allowed
+                </div>
+            </div>
         </div>
-        <div *ngIf="targetAmount?.errors?.['minlength']">
-            At least {{targetAmount?.errors?.['minlength'].requiredLength}} digits. No letters allowed
-        </div>
-    </div>
-    </div>
 
-    <!-- ///////////////////////////////////////////////////////////////////////////////////////////-->
-    <!-- *********************************** Saved Amount field  ***********************************-->
-    <div class="form-group">
-        <label for="savedAmount">Saved Amount*</label>
-    <input
-    required
-    ngModel 
-    name="savedAmount" 
-    formControlName="savedAmount"  
-    id="savedAmount" 
-    type="text"
-    NumberOnly
-    class="form-control">
-    <div 
-    class="alert alert-danger" 
-    *ngIf="savedAmount?.invalid && savedAmount?.touched">
-        <div *ngIf="savedAmount?.errors?.['required']">
-            Field is required
+        <!-- ///////////////////////////////////////////////////////////////////////////////////////////-->
+        <!-- *********************************** Saved Amount field  ***********************************-->
+        <div class="form-group">
+            <label for="savedAmount">Saved Amount*</label>
+            <input required ngModel name="savedAmount" formControlName="savedAmount" id="savedAmount" type="text"
+                NumberOnly class="form-control">
+            <div class="alert alert-danger" *ngIf="savedAmount?.invalid && savedAmount?.touched">
+                <div *ngIf="savedAmount?.errors?.['required']">
+                    Field is required
+                </div>
+            </div>
         </div>
-    </div>
-    </div>
-    
-    <div class="divButton">
-        <button
-            id="submitButton" 
-            class="btn btn-primary" 
-            type="submit" 
-            value="Save" 
-            [disabled]="newGoalForm.invalid">
-            Submit
-    </button>
-        <button 
-            type="button" 
-            class="btn btn-danger" 
-            [routerLink]="'/goals'">Cancel</button>
+
+        <div class="divButton">
+            <button id="submitButton" class="btn btn-primary" type="submit" value="Save"
+                [disabled]="newGoalForm.invalid">
+                Submit
+            </button>
+            <button type="button" class="btn btn-danger" (click)="goToGoalList()">Cancel</button>
         </div>
     </form>
 </div>
+
+<!--  *************************************** FOOTER ******************************************** -->
+<footer>
+    <div class="footer-content">
+        <h3>SPYGLASS</h3>
+        <p>Follow us</p>
+        <ul class="socials">
+          <li><a href="https://www.facebook.com/Vanguard/" target="_blank"><i class="fa fa-facebook"></i></a></li>
+          <li><a href="https://twitter.com/Vanguard_Group" target="_blank"><i class="fa fa-twitter"></i></a></li>
+          <li><a href="https://www.linkedin.com/company/vanguard/" target="_blank"><i class="fa fa-linkedin-square"></i></a></li>
+          <li><a href="https://www.instagram.com/vanguardgroup/?hl=en" target="_blank"><i class="fa fa-instagram"></i></a></li>
+          
+        </ul>
+    </div>
+    <div class="footer-bottom">
+        <p>copyright &copy;2022 SPYGLASS. designed by <span>SPYGLASS</span></p>
+    </div>
+  </footer>

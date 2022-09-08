@@ -17,6 +17,11 @@ export class GoalApiService {
     return this.http.get(`${this.baseUrl}`).pipe(catchError(this.handleError));
   }
 
+  // Find goals by user
+  findByUser(userId: number): Observable<any>{
+    return this.http.get(`${this.baseUrl}/user/${userId}`);
+   }
+
     // Find all goals api with pagination
     findAllWithPagination(page:number = 0, size: number = 5): Observable<any>{
       return this.http.get<any>(`${this.baseUrl}/pagination?page=${page}&size=${size}`).pipe(catchError(this.handleError));

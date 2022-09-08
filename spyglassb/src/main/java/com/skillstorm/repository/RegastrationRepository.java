@@ -7,12 +7,12 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import com.skillstorm.beans.Goal;
+import com.skillstorm.beans.User;
 
 @Repository
-public interface GoalRepository extends JpaRepository<Goal, Integer> {
+public interface RegastrationRepository extends JpaRepository<User, Integer> {
 	
-	List<Goal> findByName(String name);
+	public User findByEmail(String email);
+	public User findByEmailAndPassword(String email, String password);
 	
-	@Query("SELECT g FROM Goal g JOIN g.user u WHERE u.userId = ?1")
-	public List<Goal> findGoalByUserId(int id);
 }

@@ -1,12 +1,3 @@
-.form-control.ng-touched.ng-invalid {
-    border: 2px solid red;
-}
-
-.container {
-    display:flex;
-    justify-content: center;
-}
-
 .form {
     display: flex;
     flex-direction: column;
@@ -18,32 +9,21 @@
     box-shadow: 0 0 15px 0 black;
 }
 
-button {
-    text-align: center;
-    display:flex;
-    justify-content: center;
-}
-.divButton {
-    display:flex;
-    justify-content: space-around;
-
-}
-#submitButton:disabled {
-    cursor: default;
+.container {
+    max-width: 600px;
 }
 
-.btn {
-  padding: 9px 25px;
-  box-shadow: 0 0 2px 0 black;
+.float-end{
+    cursor: pointer;
 }
 
-.alert {
-    color: red;
+.float-end:hover{
+   text-decoration: underline;
 }
 
 /* ============================ FOOTER ================================ */
 footer{
-    position: relative;
+    position: absolute;
     bottom: 0;
     left: 0;
     right: 0;

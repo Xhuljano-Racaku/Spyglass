@@ -4,7 +4,11 @@ import java.time.LocalDate;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
+@JsonIgnoreProperties(ignoreUnknown = true)
 @Table(name= "goals")
 public class Goal {
 	@Id
@@ -29,23 +33,29 @@ public class Goal {
 	
 	@Column(name= "saved_amount")
 	private double savedAmount;
+	
+	@ManyToOne
+//	@JsonIgnore
+	@JoinColumn(name = "user_id")
+	private User user;
 
 	public Goal() {
 		
 	}
-
+	
 	public Goal(String name, String description, String image, LocalDate targetDate, double targetAmount,
-			double savedAmount) {
+			double savedAmount, User user) {
 		this.name = name;
 		this.description = description;
 		this.image = image;
 		this.targetDate = targetDate;
 		this.targetAmount = targetAmount;
 		this.savedAmount = savedAmount;
+		this.user = user;
 	}
 
 	public Goal(int id, String name, String description, String image, LocalDate targetDate, double targetAmount,
-			double savedAmount) {
+			double savedAmount, User user) {
 		this.id = id;
 		this.name = name;
 		this.description = description;
@@ -53,7 +63,29 @@ public class Goal {
 		this.targetDate = targetDate;
 		this.targetAmount = targetAmount;
 		this.savedAmount = savedAmount;
+		this.user = user;
 	}
+	
+//	public Goal(String name, String description, String image, LocalDate targetDate, double targetAmount,
+//			double savedAmount) {
+//		this.name = name;
+//		this.description = description;
+//		this.image = image;
+//		this.targetDate = targetDate;
+//		this.targetAmount = targetAmount;
+//		this.savedAmount = savedAmount;
+//	}
+//
+//	public Goal(int id, String name, String description, String image, LocalDate targetDate, double targetAmount,
+//			double savedAmount) {
+//		this.id = id;
+//		this.name = name;
+//		this.description = description;
+//		this.image = image;
+//		this.targetDate = targetDate;
+//		this.targetAmount = targetAmount;
+//		this.savedAmount = savedAmount;
+//	}
 
 	public int getId() {
 		return id;
@@ -110,13 +142,26 @@ public class Goal {
 	public void setSavedAmount(double savedAmount) {
 		this.savedAmount = savedAmount;
 	}
+	
+	
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
 
 	@Override
+//	public String toString() {
+//		return "Goal [id=" + id + ", name=" + name + ", description=" + description + ", image=" + image
+//				+ ", targetDate=" + targetDate + ", targetAmount=" + targetAmount + ", savedAmount=" + savedAmount
+//				+ "]";
+//	}
+//	
 	public String toString() {
 		return "Goal [id=" + id + ", name=" + name + ", description=" + description + ", image=" + image
 				+ ", targetDate=" + targetDate + ", targetAmount=" + targetAmount + ", savedAmount=" + savedAmount
-				+ "]";
+				+ ", user=" + user + "]";
 	}
-	
-	
 }
