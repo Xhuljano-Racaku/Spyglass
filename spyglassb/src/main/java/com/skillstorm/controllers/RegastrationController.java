@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.skillstorm.beans.Goal;
 import com.skillstorm.beans.User;
 import com.skillstorm.services.RegastrationService;
 
@@ -33,6 +34,7 @@ public class RegastrationController {
 			System.out.println("GET all called");
 			return new ResponseEntity<List<User>>(service.findAll(), HttpStatus.OK);
 		}
+
 		
 	// Register a user	
 		@PostMapping
@@ -66,8 +68,14 @@ public class RegastrationController {
 			return new ResponseEntity<>(userObj, HttpStatus.CREATED);
 		}
 		
+	// Get user by id
+		@GetMapping("/id/{id}")
+		public ResponseEntity<User> findById(@PathVariable int id) {
+			System.out.println("GET by id called");
+			return new ResponseEntity<User> (service.findById(id), HttpStatus.OK);
+		}
+		
 	// Delete a user
-		// Delete a goal
 		@DeleteMapping("/id/{id}")
 		public ResponseEntity<Void> delete(@PathVariable int id) {
 			System.out.println("DELETE called");

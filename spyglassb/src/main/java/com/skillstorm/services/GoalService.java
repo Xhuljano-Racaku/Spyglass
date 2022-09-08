@@ -23,6 +23,11 @@ public class GoalService {
 		return repository.findAll();
 	}
 	
+	// Find goals by user id
+			public List<Goal> findGoalsByUserId(int id) {
+				return repository.findGoalByUserId(id);
+			}
+	
 	//Find all with sorting
 	public List<Goal> findAllWithSorting(String field){
 		return repository.findAll(Sort.by(Sort.Direction.ASC, field));
@@ -48,7 +53,7 @@ public class GoalService {
 	public Goal findById(int id) {
 		return repository.findById(id).get();
 	}
-	
+		
 	// Create a goal
 	public Goal save(Goal goal) {
 		return repository.save(goal);

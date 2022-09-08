@@ -34,37 +34,14 @@ public class Goal {
 	@Column(name= "saved_amount")
 	private double savedAmount;
 	
-//	@ManyToOne
+	@ManyToOne
 //	@JsonIgnore
-//	@JoinColumn(name = "user_id")
-//	private User user;
+	@JoinColumn(name = "user_id")
+	private User user;
 
 	public Goal() {
 		
 	}
-	
-//	public Goal(String name, String description, String image, LocalDate targetDate, double targetAmount,
-//			double savedAmount, User user) {
-//		this.name = name;
-//		this.description = description;
-//		this.image = image;
-//		this.targetDate = targetDate;
-//		this.targetAmount = targetAmount;
-//		this.savedAmount = savedAmount;
-//		this.user = user;
-//	}
-//
-//	public Goal(int id, String name, String description, String image, LocalDate targetDate, double targetAmount,
-//			double savedAmount, User user) {
-//		this.id = id;
-//		this.name = name;
-//		this.description = description;
-//		this.image = image;
-//		this.targetDate = targetDate;
-//		this.targetAmount = targetAmount;
-//		this.savedAmount = savedAmount;
-//		this.user = user;
-//	}
 	
 	public Goal(String name, String description, String image, LocalDate targetDate, double targetAmount,
 			double savedAmount, User user) {
@@ -74,6 +51,7 @@ public class Goal {
 		this.targetDate = targetDate;
 		this.targetAmount = targetAmount;
 		this.savedAmount = savedAmount;
+		this.user = user;
 	}
 
 	public Goal(int id, String name, String description, String image, LocalDate targetDate, double targetAmount,
@@ -85,7 +63,29 @@ public class Goal {
 		this.targetDate = targetDate;
 		this.targetAmount = targetAmount;
 		this.savedAmount = savedAmount;
+		this.user = user;
 	}
+	
+//	public Goal(String name, String description, String image, LocalDate targetDate, double targetAmount,
+//			double savedAmount) {
+//		this.name = name;
+//		this.description = description;
+//		this.image = image;
+//		this.targetDate = targetDate;
+//		this.targetAmount = targetAmount;
+//		this.savedAmount = savedAmount;
+//	}
+//
+//	public Goal(int id, String name, String description, String image, LocalDate targetDate, double targetAmount,
+//			double savedAmount) {
+//		this.id = id;
+//		this.name = name;
+//		this.description = description;
+//		this.image = image;
+//		this.targetDate = targetDate;
+//		this.targetAmount = targetAmount;
+//		this.savedAmount = savedAmount;
+//	}
 
 	public int getId() {
 		return id;
@@ -144,24 +144,24 @@ public class Goal {
 	}
 	
 	
-//	public User getUser() {
-//		return user;
-//	}
-//
-//	public void setUser(User user) {
-//		this.user = user;
-//	}
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
 
 	@Override
-	public String toString() {
-		return "Goal [id=" + id + ", name=" + name + ", description=" + description + ", image=" + image
-				+ ", targetDate=" + targetDate + ", targetAmount=" + targetAmount + ", savedAmount=" + savedAmount
-				+ "]";
-	}
-	
 //	public String toString() {
 //		return "Goal [id=" + id + ", name=" + name + ", description=" + description + ", image=" + image
 //				+ ", targetDate=" + targetDate + ", targetAmount=" + targetAmount + ", savedAmount=" + savedAmount
-//				+ ", user=" + user + "]";
+//				+ "]";
 //	}
+//	
+	public String toString() {
+		return "Goal [id=" + id + ", name=" + name + ", description=" + description + ", image=" + image
+				+ ", targetDate=" + targetDate + ", targetAmount=" + targetAmount + ", savedAmount=" + savedAmount
+				+ ", user=" + user + "]";
+	}
 }

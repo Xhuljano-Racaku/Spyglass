@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { GoalApiService } from '../goal-api.service';
 import { Goal } from '../model/Goal';
 import {NgbDateStruct, NgbCalendar, NgbDate} from '@ng-bootstrap/ng-bootstrap';
@@ -12,10 +12,13 @@ import {NgbDateStruct, NgbCalendar, NgbDate} from '@ng-bootstrap/ng-bootstrap';
 })
 export class NewGoalComponent implements OnInit {
 
+  user: number = 0;
   newGoalForm: FormGroup= new FormGroup({});
   goal: Goal = new Goal();
-  constructor(private service: GoalApiService, private router: Router) { }
-
+  tempGoal: Goal
+  constructor(private service: GoalApiService, private router: Router, private route: ActivatedRoute) {
+    this.tempGoal = new Goal();
+   }
   get name() {
     return this.newGoalForm.get('name')
   }
@@ -41,6 +44,13 @@ export class NewGoalComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    // this.route.queryParams.subscribe(params => {
+    //   this.user = params['user']
+    //   this.service.findByUser(params['user']).subscribe(resp =>{
+    //     this.goal = resp
+    //   })
+    // })
+
     this.newGoalForm = new FormGroup({
       'name': new FormControl('', Validators.required),
       'description': new FormControl('', Validators.required),
@@ -52,6 +62,7 @@ export class NewGoalComponent implements OnInit {
   }
 
   save(): void {
+    this.tempGoal.user.userId = this.user
     let date = new Date(this.newGoalForm.value.date.year, this.newGoalForm.value.date.month -1, this.newGoalForm.value.date.day);
     this.goal.name =this.newGoalForm.value.name;
     this.goal.description =this.newGoalForm.value.description;

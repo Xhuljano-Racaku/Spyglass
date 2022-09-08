@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.skillstorm.beans.Goal;
 import com.skillstorm.beans.User;
 import com.skillstorm.repository.RegastrationRepository;
 
@@ -35,6 +36,12 @@ public class RegastrationService {
 		public User getUserByEmailAndPassword(String email, String password) {
 			return repository.findByEmailAndPassword(email, password);
 		}
+		
+	// Find by id
+		public User findById(int id) {
+			return repository.findById(id).get();
+		}
+		
 		
 	// Delete a user
 		// Delete a goal

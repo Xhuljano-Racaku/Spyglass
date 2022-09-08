@@ -31,45 +31,45 @@ public class User {
 	@Column(name= "password")
 	private String password;
 	
-//	@JsonIgnore
-//	@OneToMany(mappedBy = "user")
-//	private Set<Goal> goals;
+	@JsonIgnore
+	@OneToMany(mappedBy = "user")
+	private Set<Goal> goals;
 
 	public User() {
 		super();
 	}
 
-	public User(String email, String userName, String password) {
-	super();
-	this.email = email;
-	this.userName = userName;
-	this.password = password;
-}
-	
-	public User(int userId, String email, String userName, String password) {
-		super();
-		this.userId = userId;
-		this.email = email;
-		this.userName = userName;
-		this.password = password;
-	}
-
-//	public User(String email, String userName, String password, Set<Goal> goals) {
-//		super();
-//		this.email = email;
-//		this.userName = userName;
-//		this.password = password;
-//		this.goals = goals;
-//	}
-//
-//	public User(int userId, String email, String userName, String password, Set<Goal> goals) {
+//	public User(String email, String userName, String password) {
+//	super();
+//	this.email = email;
+//	this.userName = userName;
+//	this.password = password;
+//}
+//	
+//	public User(int userId, String email, String userName, String password) {
 //		super();
 //		this.userId = userId;
 //		this.email = email;
 //		this.userName = userName;
 //		this.password = password;
-//		this.goals = goals;
 //	}
+
+	public User(String email, String userName, String password, Set<Goal> goals) {
+		super();
+		this.email = email;
+		this.userName = userName;
+		this.password = password;
+		this.goals = goals;
+	}
+
+	public User(int userId, String email, String userName, String password, Set<Goal> goals) {
+		super();
+		this.userId = userId;
+		this.email = email;
+		this.userName = userName;
+		this.password = password;
+		this.goals = goals;
+	}
 
 	public int getUserId() {
 		return userId;
@@ -103,24 +103,23 @@ public class User {
 		this.password = password;
 	}
 
-//	public Set<Goal> getGoals() {
-//		return goals;
-//	}
-//
-//	public void setGoals(Set<Goal> goals) {
-//		this.goals = goals;
-//	}
+	public Set<Goal> getGoals() {
+		return goals;
+	}
+
+	public void setGoals(Set<Goal> goals) {
+		this.goals = goals;
+	}
 
 	@Override
-	public String toString() {
-		return "User [userId=" + userId + ", email=" + email + ", userName=" + userName + ", password=" + password
-				+ "]";
-	}
-	
 //	public String toString() {
 //		return "User [userId=" + userId + ", email=" + email + ", userName=" + userName + ", password=" + password
-//				+ ", goals=" + goals + "]";
+//				+ "]";
 //	}
-//	
+	
+	public String toString() {
+		return "User [userId=" + userId + ", email=" + email + ", userName=" + userName + ", password=" + password
+				+ ", goals=" + goals + "]";
+	}
 	
 }
