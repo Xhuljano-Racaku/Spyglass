@@ -10,6 +10,7 @@ export class UserService {
 
   baseUrl: string = "http://localhost:8081/users";
   isAuthenticated = false;
+  activeUser: number = 0;
 
   constructor(private http: HttpClient) { }
 
@@ -36,5 +37,9 @@ export class UserService {
 
   setIsAuthenticated(x : boolean){
     this.isAuthenticated = x;
+  }
+
+  setActiveUser(id: number){
+    this.activeUser = id;
   }
 }

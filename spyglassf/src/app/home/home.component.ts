@@ -18,4 +18,12 @@ export class HomeComponent implements OnInit {
     this.service.setIsAuthenticated(false);
     this.router.navigate(['/login'])
   }
+
+  goToGoalList(){
+    this.router.navigate(['/goals'], {queryParams: {user: this.service.activeUser}})
+  }
+
+  goToAddGoal(){
+    this.router.navigate(['/add'], {queryParams: {user: this.service.activeUser}})
+  }
 }

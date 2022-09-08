@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { GoalApiService } from '../goal-api.service';
 import { Goal } from '../model/Goal';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-edit-goal',
@@ -49,7 +50,7 @@ export class EditGoalComponent implements OnInit {
     return this.editGoalForm.get('savedAmount')
   }
 
-  constructor(private service: GoalApiService, private router:Router, private _activatedRoute: ActivatedRoute) { }
+  constructor(private service: GoalApiService, private router:Router, private _activatedRoute: ActivatedRoute, private userService: UserService) { }
 
   ngOnInit(): void {
     this._activatedRoute.paramMap.subscribe((params: any)=> {
@@ -90,8 +91,12 @@ export class EditGoalComponent implements OnInit {
       console.log(this.currentGoal)
       this.service.update(this.currentGoal).subscribe(() => {});
       setTimeout(()=> {
-        this.router.navigate(['/goals']);
+        this.router.navigate(['/goals'], {queryParams: {user: this.userService.activeUser}});
       },50)
 
+  }
+  
+  goToGoalList(){
+    this.router.navigate(['/goals'], {queryParams: {user: this.userService.activeUser}})
   }
 }

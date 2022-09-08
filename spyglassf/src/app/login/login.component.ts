@@ -40,6 +40,7 @@ export class LoginComponent implements OnInit {
       },
       ()=>{
         this.service.setIsAuthenticated (true);
+        this.service.setActiveUser(this.user.userId);
       }
     )
   }

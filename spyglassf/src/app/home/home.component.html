@@ -3,10 +3,11 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <nav *ngIf="service.isAuthenticated">
   <div class="home">
-    <button id="homeButton" class="button" [routerLink]="['/goals']"><i class="fa fa-home" style="color: rgb(106, 32, 32)"></i> Home</button>
+    <button id="homeButton" class="button" 
+    (click)="goToGoalList()"><i class="fa fa-home" style="color: rgb(106, 32, 32)"></i> Home</button>
   </div>
   <div>
-    <button id="addButton" class="button" [routerLink]="['/add']"><i class="fa fa-plus" style="color: rgb(106, 32, 32)"></i> Add Goals</button>
+    <button id="addButton" class="button" (click)="goToAddGoal()"><i class="fa fa-plus" style="color: rgb(106, 32, 32)"></i> Add Goals</button>
   </div>
   <div>
     <button class="signoutButton" (click)="logOut()"> <i class="fa fa-sign-out"></i></button>
