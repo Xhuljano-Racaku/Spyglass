@@ -63,6 +63,7 @@ type="text"
 [value]="currentGoal.targetDate"
 placeholder="yyyy-mm-dd"
 required
+ngModel
 name="date" 
 formControlName="date"  
 class="form-control"
@@ -98,7 +99,6 @@ name="targetAmount"
 formControlName="targetAmount"  
 id="targetAmount" 
 type="text"
-NumberOnly
 class="form-control">
 <div 
 class="alert alert-danger" 
@@ -123,7 +123,6 @@ name="savedAmount"
 formControlName="savedAmount"  
 id="savedAmount" 
 type="text"
-NumberOnly
 class="form-control">
 <div 
 class="alert alert-danger" 

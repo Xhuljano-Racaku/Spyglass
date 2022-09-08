@@ -62,6 +62,7 @@ export class EditGoalComponent implements OnInit {
 
 
         console.log(this.currentGoal.targetDate)
+        console.log(this.currentGoal);
   
         
         this.editGoalForm = new FormGroup({

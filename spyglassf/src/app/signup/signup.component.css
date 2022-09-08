@@ -4,8 +4,8 @@
     row-gap: 20px;
     padding: 40px;
     width: 600px;
-    border: 7px solid #b3b3b3;
-    margin-top: 10px;
+    border: 7px solid rgb(106, 32, 32);
+    margin: 10rem auto;
     box-shadow: 0 0 15px 0 black;
 }
 
