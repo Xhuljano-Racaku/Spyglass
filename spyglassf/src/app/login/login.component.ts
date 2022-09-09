@@ -21,12 +21,7 @@ export class LoginComponent implements OnInit {
 
   loginUser(){
     this.service.login(this.user).subscribe(
-      // data =>{
-      //    console.log("response received")
-      //   this.router.navigate(['/goals'])
-      // },
-
-      data =>{
+     data =>{
         this.user = data;
          console.log("data")
          if(this.user != null){

@@ -28,15 +28,7 @@ export class GoalListComponent implements OnInit {
         this.goalList = resp
       })
     })
-    // this.findGoals()
   }
-
-  // findGoals() {
-  //     this.service.findAll().subscribe((data) => {
-  //       this.goalList = data;
-  //       console.log(data);
-  //   });
-  // }
 
   deleteGoal(id: number) {
     let confirmation = confirm("Are you sure you want to delete this item?");
@@ -78,8 +70,3 @@ export class GoalListComponent implements OnInit {
 function compare(a: number | string | Date, b: number | string | Date, isAsc: boolean) {
   return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
 }
-  // pageChangeEvent(event: number) {
-  //   this.page= event;
-  //   this.size = event;
-  //   this.findGoals();
-  // }

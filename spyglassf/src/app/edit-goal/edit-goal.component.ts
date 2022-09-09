@@ -55,7 +55,7 @@ export class EditGoalComponent implements OnInit {
   ngOnInit(): void {
     this._activatedRoute.paramMap.subscribe((params: any)=> {
 
-      // Get the id of the current item and display it to the url
+      // Get the id of the current goal and display it to the url
       this.service.findAll().subscribe((goalList) => {
         this.currentGoal = goalList.find((goal: { id: number; })=> {
           return goal.id === +params.get("id");

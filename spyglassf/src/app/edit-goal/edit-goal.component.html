@@ -7,7 +7,7 @@
     -->
     <form class="form" [formGroup]="editGoalForm" (ngSubmit)="edit()">
         
-        <!-- This get the item number of the item that will be updated and display it to the user,
+        <!-- This get the goal id of the goal that will be updated and display it to the user,
              so the user will know which item is updating -->
         <h1>Edit Your Goal {{this.editGoalForm.get('id')?.value}}</h1>
 
