@@ -15,6 +15,7 @@ export class HomeComponent implements OnInit {
   }
 
   logOut(){
+    sessionStorage.clear();
     this.service.setIsAuthenticated(false);
     this.router.navigate(['/login'])
   }

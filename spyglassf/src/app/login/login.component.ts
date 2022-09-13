@@ -25,6 +25,7 @@ export class LoginComponent implements OnInit {
         this.user = data;
          console.log("data")
          if(this.user != null){
+          sessionStorage.setItem('user', this.user.userId.toString());
           console.log(this.user.userId)
           this.router.navigate(['/goals'], {queryParams: {user: this.user.userId}})
          }

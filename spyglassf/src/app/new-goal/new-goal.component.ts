@@ -43,7 +43,11 @@ export class NewGoalComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
-      this.user = params['user']
+      this.user = params['user'];
+      let currentUser = sessionStorage.getItem('user');
+      if(currentUser != this.user.toString()){
+        this.router.navigate(['/login']);
+      }
     })
 
     this.newGoalForm = new FormGroup({
