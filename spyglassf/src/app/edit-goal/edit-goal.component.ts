@@ -13,6 +13,7 @@ import { UserService } from '../user.service';
 export class EditGoalComponent implements OnInit {
 
   currentGoal = new Goal();
+  user: number = 0;
   /** Autofill the editForm with the current values and all fields are required to fill
             excpet the image field and the itemNumber which we can not update it since it's unique
   */

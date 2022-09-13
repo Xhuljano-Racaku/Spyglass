@@ -24,9 +24,15 @@ export class GoalListComponent implements OnInit {
     this.route.queryParams.subscribe(params => {
       this.user = params['user']
       console.log(this.user)
-      this.service.findByUser(params['user']).subscribe(resp =>{
-        this.goalList = resp
-      })
+      
+      let currentUser = sessionStorage.getItem('user');
+      if(currentUser != this.user.toString()){
+        this.router.navigate(['/login']);
+      }else {
+        this.service.findByUser(params['user']).subscribe(resp =>{
+          this.goalList = resp
+        })
+      }
     })
   }
 
